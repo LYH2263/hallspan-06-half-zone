@@ -141,6 +141,32 @@ h1 {
 .hs-desk .hs-paper-tag.a { background: var(--hs-paper-a); }
 .hs-desk .hs-paper-tag.b { background: var(--hs-paper-b); }
 
+/* 左右两本账：左账冷色、右账暖色，分界列处切线 */
+.hs-desk.side-l { background: #d8e7f5; border-color: #5a7a9a; }
+.hs-desk.side-r { background: #f3e2cd; border-color: #a07a4a; }
+.hs-desk.hs-boundary { border-left: 4px solid var(--hs-bad); }
+.hs-ledger-bar {
+  display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+  margin: 0.6rem 0 0.8rem; font-size: 0.82rem;
+  font-family: "Segoe UI", "PingFang SC", sans-serif;
+}
+.hs-ledger-chip {
+  display: inline-block; padding: 0.15rem 0.6rem; border-radius: 2px;
+  font-weight: 700; border: 1px solid transparent;
+}
+.hs-ledger-chip.l { background: #d8e7f5; border-color: #5a7a9a; }
+.hs-ledger-chip.r { background: #f3e2cd; border-color: #a07a4a; }
+.hs-errors {
+  background: #fde8e6; border: 1px solid var(--hs-bad); color: var(--hs-bad);
+  padding: 0.5rem 0.75rem; margin: 0.6rem 0; font-size: 0.82rem;
+  font-family: "Segoe UI", "PingFang SC", sans-serif;
+}
+.hs-errors div + div { margin-top: 0.2rem; }
+.hs-side-tag { font-size: 0.68rem; font-weight: 700; padding: 0 3px; border-radius: 2px; color: #fff; }
+.hs-side-tag.l { background: #5a7a9a; }
+.hs-side-tag.r { background: #a07a4a; }
+.hs-side-tag.u { background: #8a8a8a; }
+
 .card {
   background: var(--hs-clip);
   border: 1px solid #b0a890;

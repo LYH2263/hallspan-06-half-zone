@@ -11,6 +11,7 @@ class Hall(Base):
     rows: Mapped[int] = mapped_column(Integer)
     cols: Mapped[int] = mapped_column(Integer)
     min_manhattan: Mapped[int] = mapped_column(Integer, default=2)
+    boundary_col: Mapped[int] = mapped_column(Integer, default=3)  # 分界列：左账 [0, boundary) 右账 [boundary, cols)
 
 class PaperSet(Base):
     __tablename__ = "paper_sets"
@@ -25,6 +26,7 @@ class Candidate(Base):
     name: Mapped[str] = mapped_column(String(64))
     ticket_no: Mapped[str] = mapped_column(String(32))
     paper_id: Mapped[int] = mapped_column(ForeignKey("paper_sets.id"))
+    side: Mapped[str | None] = mapped_column(String(1), nullable=True)  # 左右标记：L 左账 / R 右账 / None 未标记
 
 class SeatPlan(Base):
     __tablename__ = "seat_plans"

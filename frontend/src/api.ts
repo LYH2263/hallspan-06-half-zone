@@ -3,7 +3,14 @@ export async function api<T = any>(path: string, init?: RequestInit): Promise<T>
     headers: { 'Content-Type': 'application/json', ...(init?.headers || {}) },
     ...init,
   })
-  if (!res.ok) throw new Error(await res.text() || res.statusText)
+  if (!res.ok) {
+    let msg = res.statusText
+    try {
+      const j = await res.json()
+      msg = typeof j.detail === 'string' ? j.detail : JSON.stringify(j.detail ?? j)
+    } catch { /* 保留 statusText */ }
+    throw new Error(msg)
+  }
   if (res.status === 204) return undefined as T
   return res.json()
 }
